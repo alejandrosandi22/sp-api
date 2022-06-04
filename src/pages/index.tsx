@@ -10,7 +10,9 @@ export default function Home(props: { data: ProductType }) {
   const [data, setData] = useState(props.data);
 
   const loader = ({ src, width, quality }: any) => {
-    return `http://localhost:3000/${src}?w=${width}&q=${quality || 100}`;
+    return `https://sp-api.alejandrosandi.com/${src}?w=${width}&q=${
+      quality || 100
+    }`;
   };
 
   console.log(new Date(Date.now()));
@@ -80,7 +82,7 @@ export default function Home(props: { data: ProductType }) {
             <input
               ref={inputText}
               type='text'
-              defaultValue='http://localhost:3000/api/products/?sort=team&limit=1&order=asc'
+              defaultValue='https://sp-api.alejandrosandi.com/api/products/?sort=team&limit=1&order=asc'
             />
             <button>Send</button>
           </form>
@@ -102,7 +104,7 @@ export default function Home(props: { data: ProductType }) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res: Response = await fetch(
-    'http://localhost:3000/api/products/?sort=team&limit=1&order=asc'
+    'https://sp-api.alejandrosandi.com/api/products/?sort=team&limit=1&order=asc'
   );
 
   const data: Array<ProductType> = await res.json();
