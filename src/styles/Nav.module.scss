@@ -1,0 +1,144 @@
+.nav {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  transition: 0.25s;
+  h1 {
+    color: var(--font-color);
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    li {
+      margin: 0 2rem;
+      a {
+        position: relative;
+        color: var(--font-color);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 300;
+        transition: 0.25s;
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          background: var(--font-color);
+          transition: 0.25s;
+        }
+        &:hover {
+          color: var(--font-hover-color);
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+      .isActive {
+        color: var(--font-hover-color);
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.scrolled {
+  height: 4rem;
+  background: #1c1c1c;
+  transition: 0.25s;
+}
+
+@media (max-width: 1024px) {
+  .nav {
+    padding: 0 0 0 2rem;
+    .toggleWrapper {
+      position: relative;
+      float: right;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 1.5rem 0 0;
+      .toggle,
+      .toggle::after,
+      .toggle::before {
+        z-index: 200;
+        content: '';
+        position: absolute;
+        width: 2rem;
+        height: 0.1rem;
+        background: var(--font-color);
+        transition: 0.1s;
+      }
+      .toggle {
+        top: 1rem;
+      }
+      .toggle::before {
+        top: 0.5rem;
+      }
+      .toggle::after {
+        top: 1rem;
+      }
+      .active {
+        top: unset;
+        transform: rotate(-45deg);
+        transition: 0.2s;
+        &::before {
+          top: 0;
+          transform: rotate(90deg);
+        }
+        &::after {
+          all: unset;
+        }
+      }
+    }
+    .bg {
+      background: linear-gradient(300deg, #2924141a, #37301c1a);
+      backdrop-filter: blur(5rem);
+    }
+    ul {
+      z-index: 10;
+      position: absolute;
+      top: 5.5rem;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      width: 90%;
+      height: 30vh;
+      flex-direction: column;
+      transition: 0.6s;
+      background: linear-gradient(rgba(#181818, 0.5), rgba(#181818, 1));
+      backdrop-filter: blur(5rem);
+      transform-origin: top right;
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        border-bottom: 0.1rem solid var(--link);
+        &:nth-child(3) {
+          border-bottom: unset;
+        }
+        &::after,
+        &::before {
+          all: unset;
+        }
+      }
+    }
+    .hidde {
+      transform: scale(0);
+      transition: 0.6s;
+    }
+  }
+}

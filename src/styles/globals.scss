@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  --font-color: #fff;
+  --font-hover-color: #e0e0e0;
+  --headerGradient: linear-gradient(
+      327.21deg,
+      #fde4c330 3.65%,
+      #fde4c300 40.32%
+    ),
+    linear-gradient(245.93deg, #302a18a2 0%, #302a1800 36.63%),
+    linear-gradient(147.6deg, #fde4c300 29.79%, #fde4c301 85.72%), #1c1c1c;
+  font-size: 16px;
+}
+
+html,
+body {
+  background: #1c1c1c;
+  font-family: 'Roboto', sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
