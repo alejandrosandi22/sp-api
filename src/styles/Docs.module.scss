@@ -1,0 +1,133 @@
+.docs {
+  --docsMargin: 15rem;
+  width: calc(100% - var(--docsMargin));
+  transform: translateX(var(--docsMargin));
+  transform-origin: right;
+  transition: all 0.5s;
+  .header {
+    height: 100vh;
+    max-height: 1080px;
+    background: var(--headerGradient);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    div {
+      width: 30rem;
+      height: 25rem;
+      border-radius: 10px;
+      background: #302a186b;
+      border: 1px solid #ffffff10;
+      justify-self: center;
+      &:hover {
+        background: #302a1857;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        font-size: clamp(1.8rem, 6vw, 2rem);
+        font-weight: 300;
+        color: var(--font-color);
+        text-decoration: none;
+      }
+    }
+  }
+  .main {
+    height: 500vh;
+    max-height: 5400px;
+    .endpoints {
+      height: 100vh;
+      max-height: 1080px;
+      padding: 25px 50px;
+      &:nth-child(even) {
+        background: #1f1f1f;
+      }
+      h2 {
+        font-size: clamp(1.8rem, 6vw, 2rem);
+        font-weight: 300;
+        color: var(--font-color);
+        margin: 0 0 20px 0;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 80%;
+        p {
+          font-size: clamp(0.8rem, 5vw, 1rem);
+          color: var(--font-color);
+          margin: 10px 0;
+        }
+        code {
+          width: 100%;
+          background: #302a1828;
+          border-radius: 6px;
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          pre {
+            color: var(--font-color);
+            font-size: clamp(0.8rem, 5vw, 1rem);
+          }
+        }
+      }
+    }
+  }
+  .section {
+    position: relative;
+    height: 100vh;
+    max-height: 1080px;
+    background: #1f1f1f;
+    padding: 5rem 0 0 0;
+    .step {
+      position: absolute;
+      top: 0;
+      height: 5rem;
+      width: 100%;
+      background-color: #1c1c1c;
+      clip-path: polygon(0px 0px, 100% 0px, 100% 0%, 0px 100%);
+    }
+    .subtitle {
+      height: 25%;
+      h1 {
+        text-align: center;
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        font-weight: 300;
+        color: var(--font-color);
+      }
+      h2 {
+        text-align: center;
+
+        color: var(--font-color);
+        font-size: clamp(0.8rem, 6vw, 1.5rem);
+        font-weight: 300;
+      }
+    }
+    .content {
+      display: flex;
+      justify-content: space-around;
+      height: 75%;
+      ul {
+        list-style: none;
+        background: #302a1828;
+        padding: 50px;
+        height: fit-content;
+        width: auto;
+        li {
+          font-size: clamp(1rem, 5vw, 1.2rem);
+          color: var(--font-color);
+        }
+      }
+    }
+  }
+}
+.isHidde {
+  --docsMargin: 2.5rem;
+  width: calc(100% - var(--docsMargin));
+  transition: all 0.5s;
+  position: relative;
+}

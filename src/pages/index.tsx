@@ -15,8 +15,6 @@ export default function Home(props: { data: ProductType }) {
     }`;
   };
 
-  console.log(new Date(Date.now()));
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch(inputText.current!.value);
