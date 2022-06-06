@@ -44,6 +44,7 @@
       width: 80%;
       aspect-ratio: 695 / 699;
       max-width: 900px;
+      background: #1c1c1c;
     }
   }
 }
@@ -173,7 +174,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: calc(100vh - 5rem);
     padding: 5rem 0 0 0;
-    .hero-container {
+    .heroContainer {
       display: none;
     }
   }
