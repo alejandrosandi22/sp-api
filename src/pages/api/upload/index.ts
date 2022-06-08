@@ -8,8 +8,6 @@ import Accesories from '../../../../models/Accesories';
 import Lifestyle from '../../../../models/Lifestyle';
 import Training from '../../../../models/Training';
 import { MulterRequest } from 'types/main';
-import cors from 'cors';
-import NextCors from 'nextjs-cors';
 
 dbConnect();
 
@@ -37,26 +35,10 @@ const apiRoute = nc<MulterRequest, NextApiResponse>({
   },
 });
 
-apiRoute.use(cors());
 apiRoute.use(upload.array('images'));
-
-apiRoute.get(async (req, res) => {
-  await NextCors(req, res, {
-    methods: ['GET', 'POST'],
-    origin: '*',
-    optionsSuccessStatus: 200,
-  });
-  res.status(200).json({ message: 'Uploader' });
-});
 
 apiRoute.post(async (req, res) => {
   const { collection } = req.query;
-
-  await NextCors(req, res, {
-    methods: ['GET', 'POST'],
-    origin: '*',
-    optionsSuccessStatus: 200,
-  });
 
   if (!collection) {
     return res.status(400).json({ error: 'Collection is required' });
