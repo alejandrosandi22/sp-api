@@ -8,6 +8,7 @@ import Accesories from '../../../../models/Accesories';
 import Lifestyle from '../../../../models/Lifestyle';
 import Training from '../../../../models/Training';
 import { MulterRequest } from 'types/main';
+import cors from 'cors';
 
 dbConnect();
 
@@ -35,6 +36,7 @@ const apiRoute = nc<MulterRequest, NextApiResponse>({
   },
 });
 
+apiRoute.use(cors());
 apiRoute.use(upload.array('images'));
 
 apiRoute.post(async (req, res) => {
@@ -43,8 +45,6 @@ apiRoute.post(async (req, res) => {
   if (!collection) {
     return res.status(400).json({ error: 'Collection is required' });
   }
-
-  const date = Date.now();
 
   const comments: Array<any> = [
     {
