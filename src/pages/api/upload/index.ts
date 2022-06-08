@@ -9,6 +9,7 @@ import Lifestyle from '../../../../models/Lifestyle';
 import Training from '../../../../models/Training';
 import { MulterRequest } from 'types/main';
 import cors from 'cors';
+import NextCors from 'nextjs-cors';
 
 dbConnect();
 
@@ -21,12 +22,12 @@ const collectionSave: string = 'kits';
 const upload = multer({
   storage: multer.diskStorage({
     destination: `./public/images/${collectionSave}`,
-    filename: (req, file, cb) => cb(null, `${uuidv4()}.png`),
+    filename: (_req, _file, cb) => cb(null, `${uuidv4()}.png`),
   }),
 });
 
 const apiRoute = nc<MulterRequest, NextApiResponse>({
-  onError(error, req, res) {
+  onError(error, _req, res) {
     res
       .status(501)
       .json({ error: `Sorry something Happened! ${error.message}` });
@@ -39,12 +40,23 @@ const apiRoute = nc<MulterRequest, NextApiResponse>({
 apiRoute.use(cors());
 apiRoute.use(upload.array('images'));
 
-apiRoute.get((_req, res) => {
+apiRoute.get(async (req, res) => {
+  await NextCors(req, res, {
+    methods: ['GET', 'POST'],
+    origin: '*',
+    optionsSuccessStatus: 200,
+  });
   res.status(200).json({ message: 'Uploader' });
 });
 
 apiRoute.post(async (req, res) => {
   const { collection } = req.query;
+
+  await NextCors(req, res, {
+    methods: ['GET', 'POST'],
+    origin: '*',
+    optionsSuccessStatus: 200,
+  });
 
   if (!collection) {
     return res.status(400).json({ error: 'Collection is required' });
