@@ -34,9 +34,3 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-
-/public/images
-/public/images/accesories
-/public/images/kits
-/public/images/lifestyle
-/public/images/training
