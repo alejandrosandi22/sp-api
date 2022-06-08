@@ -28,7 +28,7 @@
         text-align: center;
         width: 100%;
         height: 100%;
-        font-size: clamp(1.8rem, 6vw, 2rem);
+        font-size: clamp(1rem, 6vw, 2rem);
         font-weight: 300;
         color: var(--font-color);
         text-decoration: none;
@@ -36,8 +36,6 @@
     }
   }
   .main {
-    height: 500vh;
-    max-height: 5400px;
     .endpoints {
       height: 100vh;
       max-height: 1080px;
@@ -46,7 +44,7 @@
         background: #1f1f1f;
       }
       h2 {
-        font-size: clamp(1.8rem, 6vw, 2rem);
+        font-size: clamp(1rem, 6vw, 2rem);
         font-weight: 300;
         color: var(--font-color);
         margin: 0 0 20px 0;
@@ -57,6 +55,7 @@
         justify-content: space-between;
         height: 80%;
         p {
+          font-weight: 300;
           font-size: clamp(0.8rem, 5vw, 1rem);
           color: var(--font-color);
           margin: 10px 0;
@@ -79,8 +78,8 @@
   }
   .section {
     position: relative;
-    height: 100vh;
-    max-height: 1080px;
+    min-height: 100vh;
+    max-height: 2000px;
     background: #1f1f1f;
     padding: 5rem 0 0 0;
     .step {
@@ -95,7 +94,7 @@
       height: 25%;
       h1 {
         text-align: center;
-        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        font-size: clamp(1rem, 6vw, 2.5rem);
         font-weight: 300;
         color: var(--font-color);
       }
@@ -103,7 +102,7 @@
         text-align: center;
 
         color: var(--font-color);
-        font-size: clamp(0.8rem, 6vw, 1.5rem);
+        font-size: clamp(0.5rem, 5vw, 1.5rem);
         font-weight: 300;
       }
     }
@@ -130,4 +129,48 @@
   width: calc(100% - var(--docsMargin));
   transition: all 0.5s;
   position: relative;
+}
+
+@media (max-width: 720px) {
+  .docs {
+    --docsMargin: 2.5rem;
+    .header {
+      grid-template-columns: 1fr;
+      div {
+        width: 250px;
+        height: 200px;
+        align-self: flex-end;
+        margin: 10px 0;
+        &:nth-child(2) {
+          align-self: flex-start;
+        }
+      }
+    }
+    .main {
+      .endpoints {
+        padding: 20px 10px;
+        div {
+          code {
+            padding: 16px;
+            overflow-wrap: break-word;
+            pre {
+              white-space: pre-wrap;
+            }
+          }
+        }
+      }
+    }
+    .section {
+      .content {
+        flex-direction: column;
+        margin: 20px 0;
+        ul {
+          padding: 25px 25px 0px 25px;
+          &:nth-child(2) {
+            padding: 0px 25px 25px 25px;
+          }
+        }
+      }
+    }
+  }
 }
