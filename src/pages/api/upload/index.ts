@@ -39,6 +39,10 @@ const apiRoute = nc<MulterRequest, NextApiResponse>({
 apiRoute.use(cors());
 apiRoute.use(upload.array('images'));
 
+apiRoute.get((_req, res) => {
+  res.status(200).json({ message: 'Uploader' });
+});
+
 apiRoute.post(async (req, res) => {
   const { collection } = req.query;
 
