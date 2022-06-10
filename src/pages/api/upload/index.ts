@@ -51,7 +51,7 @@ apiRoute.post(async (req, res) => {
       date: Date.now(),
     },
     {
-      body: 'Fuuuuully recommended! Great polo shirt is with good quality Fast delivery! Thank you so much! I am very satisfied!',
+      body: 'Fuuuuully recommended! Great product is with good quality Fast delivery! Thank you so much! I am very satisfied!',
       author: 'Cameron Curry',
       date: Date.now(),
     },
@@ -61,13 +61,13 @@ apiRoute.post(async (req, res) => {
       date: Date.now(),
     },
     {
-      body: 'Super quality thank you I will take 3 other polo thank you ...... fast delivery at the top at the top at the top',
+      body: 'Super quality thank you I will take 3 other thank you ...... fast delivery at the top at the top at the top',
       author: 'Jessica Tyler',
       date: Date.now(),
     },
     { body: 'Very beautiful', author: 'Diana Wall', date: Date.now() },
     {
-      body: 'Just perfect! The shirts are light and very comfortable, beautiful. Better than I expected. The seller was very attentive and professional. Fast shipping and well packaged. The size was perfect, it fits me very well.',
+      body: 'Just perfect! Better than I expected. The seller was very attentive and professional. Fast shipping and well packaged.',
       author: 'Pedro Cox',
       date: Date.now(),
     },
@@ -77,7 +77,7 @@ apiRoute.post(async (req, res) => {
       date: Date.now(),
     },
     {
-      body: 'Thank you! I already bought a shirt four. Everything is super!',
+      body: 'Thank you! I already bought four. Everything is super!',
       author: 'Thomas White',
       date: Date.now(),
     },
