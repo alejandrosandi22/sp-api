@@ -1,7 +1,7 @@
 import Kits from '../../../../../models/Kits';
 import Training from '../../../../../models/Training';
 import Lifestyle from '../../../../../models/Lifestyle';
-import Accesories from '../../../../../models/Accessories';
+import Accessories from '../../../../../models/Accessories';
 import { dbConnect } from '../../../../../utils/database';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
@@ -42,13 +42,15 @@ export default async function kitsApiRoute(
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
-    const accesories: ProductType[] | null = await Accesories.find({ endpoint })
+    const accessories: ProductType[] | null = await Accessories.find({
+      endpoint,
+    })
       .limit(limit ?? 10)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
 
-    res.status(200).json({ kits, training, lifestyle, accesories });
+    res.status(200).json({ kits, training, lifestyle, accessories });
   } catch (error: any) {
     res.status(500).json({ error: error.message });
   }

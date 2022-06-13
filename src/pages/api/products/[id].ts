@@ -1,7 +1,7 @@
 import Kits from '../../../../models/Kits';
 import Training from '../../../../models/Training';
 import Lifestyle from '../../../../models/Lifestyle';
-import Accesories from '../../../../models/Accessories';
+import Accessories from '../../../../models/Accessories';
 import { dbConnect } from '../../../../utils/database';
 import NextCors from 'nextjs-cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -30,12 +30,12 @@ export default async function handler(
     const kits: ProductType | null = await Kits.findById(id);
     const training: ProductType | null = await Training.findById(id);
     const lifestyle: ProductType | null = await Lifestyle.findById(id);
-    const accesories: ProductType | null = await Accesories.findById(id);
+    const accessories: ProductType | null = await Accessories.findById(id);
 
     if (kits) return res.status(200).json(kits);
     if (training) return res.status(200).json(training);
     if (lifestyle) return res.status(200).json(lifestyle);
-    if (accesories) return res.status(200).json(accesories);
+    if (accessories) return res.status(200).json(accessories);
     res.status(404).json({ empty: "Can't find products" });
   } catch (error: any) {
     res.status(500).json({ error: error.message });
