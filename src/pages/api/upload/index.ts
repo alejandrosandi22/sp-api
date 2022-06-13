@@ -15,7 +15,7 @@ function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const collectionSave: string = 'accesories';
+const collectionSave: string = 'lifestyle';
 
 const upload = multer({
   storage: multer.diskStorage({
