@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 
-const accesoriesSchema = new Schema(
+const accessoriesSchema = new Schema(
   {
     team: {
       type: String,
@@ -37,8 +37,8 @@ const accesoriesSchema = new Schema(
   {
     timestamps: true,
     versionKey: false,
-    collection: 'accesories',
+    collection: 'accessories',
   }
 );
 
-export default models.Accesories || model('Accesories', accesoriesSchema);
+export default models.Accessories || model('Accessories', accessoriesSchema);

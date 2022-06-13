@@ -1,4 +1,4 @@
-import Accesories from '../../../../../models/Accesories';
+import Accesories from '../../../../../models/Accessories';
 import { dbConnect } from '../../../../../utils/database';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';

@@ -1,4 +1,4 @@
-import Accesories from '../../../../models/Accesories';
+import Accesories from '../../../../models/Accessories';
 import { dbConnect } from '../../../../utils/database';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
@@ -17,18 +17,14 @@ export default async function kitsApiRoute(
   });
 
   const { method } = req;
-  const { sort, limit, order }: any = req.query;
+  const { id } = req.query;
 
   if (method !== 'GET') {
     res.status(405).json({ error: `Method '${method}' Not Allowed` });
   }
 
   try {
-    const data: Array<ProductType> = await Accesories.find()
-      .limit(limit ?? 10)
-      .sort({
-        [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
-      });
+    const data: ProductType | null = await Accesories.findById(id);
     res.status(200).json(data);
   } catch (error: any) {
     res.status(500).json({ error: error.message });

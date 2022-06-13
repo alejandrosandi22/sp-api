@@ -17,15 +17,22 @@ export default async function kitsApiRoute(
   });
 
   const { method } = req;
-  const { sort, limit, order }: any = req.query;
+  const { sort, limit, order, where }: any = req.query;
 
   if (method !== 'GET') {
     res.status(405).json({ error: `Method '${method}' Not Allowed` });
   }
 
   try {
-    const data: Array<ProductType> = await Kits.find()
-      .limit(limit ?? 10)
+    let newWhere = {};
+
+    if (where) {
+      const dataSplit = where.split('=');
+      newWhere = { [dataSplit[0]]: dataSplit[1] };
+    }
+
+    const data: ProductType[] = await Kits.find(newWhere)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });

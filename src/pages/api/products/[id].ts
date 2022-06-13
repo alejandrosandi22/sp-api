@@ -1,7 +1,7 @@
 import Kits from '../../../../models/Kits';
 import Training from '../../../../models/Training';
 import Lifestyle from '../../../../models/Lifestyle';
-import Accesories from '../../../../models/Accesories';
+import Accesories from '../../../../models/Accessories';
 import { dbConnect } from '../../../../utils/database';
 import NextCors from 'nextjs-cors';
 import type { NextApiRequest, NextApiResponse } from 'next';

@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { NextApiResponse } from 'next';
 import nc from 'next-connect';
 import Kits from '../../../../models/Kits';
-import Accesories from '../../../../models/Accesories';
+import Accessories from '../../../../models/Accessories';
 import Lifestyle from '../../../../models/Lifestyle';
 import Training from '../../../../models/Training';
 import { MulterRequest } from 'types/main';
@@ -15,7 +15,7 @@ function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const collectionSave: string = 'lifestyle';
+const collectionSave: string = 'accessories';
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -132,10 +132,10 @@ apiRoute.post(async (req, res) => {
       return res.status(201).json(newLifestyle);
     }
 
-    if (collection === 'accesories') {
-      const newAccesories = await new Accesories(configData);
-      await newAccesories.save();
-      return res.status(201).json(newAccesories);
+    if (collection === 'accessories') {
+      const newAccessories = await new Accessories(configData);
+      await newAccessories.save();
+      return res.status(201).json(newAccessories);
     }
   } catch (error: any) {
     res.status(500).json({ error: error.message });
