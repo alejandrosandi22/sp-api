@@ -25,7 +25,7 @@ export default async function kitsApiRoute(
 
   try {
     const data: Array<ProductType> = await Training.find()
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
