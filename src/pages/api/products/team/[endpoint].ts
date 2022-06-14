@@ -28,24 +28,24 @@ export default async function kitsApiRoute(
 
   try {
     const kits: ProductType[] | null = await Kits.find({ endpoint })
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
     const training: ProductType[] | null = await Training.find({ endpoint })
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
     const lifestyle: ProductType[] | null = await Lifestyle.find({ endpoint })
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
     const accessories: ProductType[] | null = await Accessories.find({
       endpoint,
     })
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });

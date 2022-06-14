@@ -28,22 +28,22 @@ export default async function handler(
 
   try {
     const kits: Array<ProductType> = await Kits.find()
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
     const training: Array<ProductType> = await Training.find()
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
     const lifestyle: Array<ProductType> = await Lifestyle.find()
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
     const accessories: Array<ProductType> = await Accessories.find()
-      .limit(limit ?? 10)
+      .limit(limit ?? undefined)
       .sort({
         [sort ?? 'createdAt']: order ? (order === 'asc' ? 1 : -1) : 1,
       });
